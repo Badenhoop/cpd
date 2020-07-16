@@ -73,8 +73,6 @@ public:
         return *this;
     }
 
-    const Matrix& g() const { return m_g; }
-
     virtual bool linked() const { return m_linked; }
 
 private:
