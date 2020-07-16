@@ -31,7 +31,9 @@ const double DEFAULT_BETA = 3.0;
 const double DEFAULT_LAMBDA = 3.0;
 
 /// The result of a nonrigid coherent point drift run.
-struct NonrigidResult : public Result {};
+struct NonrigidResult : public Result {
+    Matrix w;
+};
 
 /// Nonrigid coherent point drift.
 class Nonrigid : public Transform<NonrigidResult> {
@@ -70,6 +72,8 @@ public:
         m_linked = linked;
         return *this;
     }
+
+    const Matrix& g() const { return m_g; }
 
     virtual bool linked() const { return m_linked; }
 

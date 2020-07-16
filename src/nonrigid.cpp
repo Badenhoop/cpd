@@ -48,6 +48,7 @@ NonrigidResult Nonrigid::compute_one(const Matrix& fixed, const Matrix& moving,
              .sum() -
          2 * (probabilities.px.transpose() * result.points).trace()) /
         (np * cols));
+    result.w = w;
     return result;
 }
 
